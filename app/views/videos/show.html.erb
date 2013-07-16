@@ -1,0 +1,20 @@
+<article>
+  <table>
+   <tr>
+     <td>
+       <%= video_tag(@video.video_url, poster: @video.poster_url, controls: true, autobuffer: true) %>
+     </td>
+     <td>
+       <dl>
+         <dt><%= link_to @video.title, video_path(@video) %></dt>
+         <dd><%= truncate @video.description, length: 80, separator: ' ' %></dd>
+       </dl>
+     </td>
+     <td>
+       <%= link_to 'All Videos', videos_path %><br />
+       <%= link_to 'Edit',  edit_video_path(@video) %><br/>
+       <%= link_to 'Destroy', @video, method: :delete, data: {confirm: 'Are you sure?'} %>
+     </td>
+   </tr>
+  </table>
+</article>
