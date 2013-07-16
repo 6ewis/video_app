@@ -3,7 +3,7 @@ class Video < ActiveRecord::Base
 
   validates :price, :title, :video_url, presence: true
 
-  validates :price, numericality:{greater_than_or_equal_to: 0.01, message: "Theprice should be a positive number",
+  validates :price, numericality:{greater_than_or_equal_to: 0.01, message: "must be a positive number",
                                 allow_nil: false}
   validates :title, uniqueness: true
 
@@ -16,11 +16,11 @@ class Video < ActiveRecord::Base
 
   has_many :line_items
   
-  before_destroy :ensure_not_referenced_by_any_line_item
+  # before_destroy :ensure_not_referenced_by_any_line_item
 
   private
 
     def ensure_not_referenced_by_any_line_item
-    	line_items.empty? ? true : false  	
+    	line_items.empty?.tap { |i| errors.add(:base, "Line Items prsent")}
     end                      
 end

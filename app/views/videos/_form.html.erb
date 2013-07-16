@@ -1,6 +1,6 @@
 <%= form_for @video do |f| %>
 	  <% if @video.errors.any? %>
-	    <h2><%= pluralize(@video.errors.count, "error") %>
+	    <h2><%= pluralize(@video.errors.count, "error") %><br />
 	    The video couldn't be saved:
 	    </h2>
     

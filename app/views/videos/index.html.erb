@@ -20,7 +20,7 @@
      <td>
        <%= link_to 'Show', video_path(video) %><br />
        <%= link_to 'Edit',  edit_video_path(video) %><br/>
-       <%= link_to 'Destroy', video, method: :delete, data: {confirm: 'Are you sure?'} %>
+       <%= link_to 'Destroy', video_path(video), method: :delete, data: {confirm: 'Are you sure?'} %>
      </td>
    </tr>
   </table>
