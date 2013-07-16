@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>VideoApp</title>
+  <title>Videos Online Store</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="banner">
+      <%= image_tag("logo.png") %>
+    </div>
 
-<%= yield %>
+	<div id="columns">
+	     <div id="side">
+	       <ul>
+	         <li><a href='#'>Home<a/></li>
+	         <li><a href='#'>Cart<a/></li>
+	         <li><a href='#'>Contact<a/></li>
+	         <li><a href='#'>About Us<a/></li>
+	       </ul>
+	     </div>
+	 
+	    <div id="main">
+	      <%= yield %>
+	    </div>
+	</div>
 
 </body>
 </html>

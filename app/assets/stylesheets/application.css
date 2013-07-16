@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+
+   .video_thumbnail {
+     width: 200px;
+     height: 112px;
+     border: 1px solid black;
+   }
+     

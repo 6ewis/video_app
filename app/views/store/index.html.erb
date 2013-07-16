@@ -1,7 +1,5 @@
-<h1> Listing videos </h1>
+<h1> Videos Store </h1>
 <h2><%= pluralize @videos.size, 'Video' %></h2>
-
-<%= link_to "Add A New Video", new_video_path %>
 
 <% @videos.each do |video| %>
 
@@ -18,14 +16,11 @@
        </dl>
      </td>
      <td>
-       <%= link_to 'Show', video_path(video) %><br />
-       <%= link_to 'Edit',  edit_video_path(video) %><br/>
-       <%= link_to 'Destroy', video, method: :delete, data: {confirm: 'Are you sure?'} %>
+       <%= number_to_currency(video.price) %><br />
+       <%= button_to 'Add to Cart', line_items_path(video) %>
      </td>
    </tr>
   </table>
-
-  
   
 </article>
 

@@ -1,0 +1,6 @@
+<h2>You current Cart</h2>
+<ul>
+	<% @cart.line_items.each do |item| %>
+	  <li><%= item.video.title %></li>
+	<% end %>
+</ul>
