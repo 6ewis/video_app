@@ -1,8 +1,12 @@
-<!-- <article>
+<%= flash[:notice] if flash[:notice] %>
+
+<h1> <%= @video.title %></h1>
+
+<article>
   <table>
    <tr>
      <td>
-       <%= video_tag(@video.video_url, poster: @video.poster_url, controls: true, autobuffer: true) %>
+       <%= video_tag(@video.video_url, poster: @video.poster_url, controls: true, autobuffer: true, size: "640x480") %>
      </td>
      <td>
        <dl>
@@ -17,6 +21,4 @@
      </td>
    </tr>
   </table>
-</article> -->
-
-<h1>In working progress </h1>
+</article>

@@ -1,4 +1,6 @@
-<h1> Listing videos </h1>
+<%= flash[:notice] if flash[:notice] %>
+
+<h1> Videos Administration </h1>
 <h2><%= pluralize @videos.size, 'Video' %></h2>
 
 <%= link_to "Add A New Video", new_video_path %>

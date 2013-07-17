@@ -7,4 +7,11 @@ class CartsController < ApplicationController
 		redirect_to store_url, notice: 'Invalid cart'
 	end
 	end
+
+	def destroy
+		@cart = current_cart
+		@cart.destroy
+		session[:cart_id] = nil
+		redirect_to store_url
+	end
 end

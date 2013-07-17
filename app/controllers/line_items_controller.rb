@@ -9,7 +9,7 @@ class LineItemsController < ApplicationController
   	if @line_item.save
   		redirect_to @line_item.cart, notice: "Line item was successfully created"
   	else
-  		render redirect_to store_path
+  		render redirect_to store_url
     end
 
   end

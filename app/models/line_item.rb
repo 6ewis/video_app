@@ -3,4 +3,9 @@ class LineItem < ActiveRecord::Base
 
   belongs_to :video
   belongs_to :cart
+
+  def total_price
+  	quantity * video.price
+  end
+  
 end
