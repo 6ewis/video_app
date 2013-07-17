@@ -1,5 +1,8 @@
 VideoApp::Application.routes.draw do
 
+  resources :orders, only: [:new, :create]
+
+
   # resources :carts
   get 'carts/:id' => 'carts#show', as: 'cart'
   delete 'carts/:id' => 'carts#destroy'
