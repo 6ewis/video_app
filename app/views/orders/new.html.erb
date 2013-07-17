@@ -20,7 +20,9 @@
   <%= f.label :pay_type %><br />
   <%= f.select :pay_type, Order::PAYMENT_TYPES,
                           prompt: 'Select the type of Credit Card ' %><br />
-                        
+
+  <%= f.label :credit_card_number %><br />
+  <%= f.text_field :credit_card_number %><br />
 
   <%= f.submit 'Place Order' %>
 
