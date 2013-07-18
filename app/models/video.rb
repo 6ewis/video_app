@@ -16,11 +16,11 @@ class Video < ActiveRecord::Base
 
   has_many :line_items
   
-  # before_destroy :ensure_not_referenced_by_any_line_item
+   before_destroy :ensure_not_referenced_by_any_line_item
 
   private
 
     def ensure_not_referenced_by_any_line_item
-    	line_items.empty?.tap { |i| errors.add(:base, "Line Items prsent")}
+    	line_items.empty?.tap { |i| errors.add(:base, "Line Items prsent") unless i}
     end                      
 end

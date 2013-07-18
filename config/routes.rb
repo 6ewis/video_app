@@ -1,5 +1,8 @@
 VideoApp::Application.routes.draw do
 
+  resources :users
+
+
   resources :orders, only: [:new, :create]
 
 
@@ -21,6 +24,5 @@ VideoApp::Application.routes.draw do
   put "videos/:id" => "videos#update"
   delete "videos/:id" => "videos#destroy"
 
-      #I'm not using resources :videos and typing each route manually instead to refer to it as my 'rake routes'
-  
+ #I'm not using resources :videos and typing each route manually instead to refer to it easily
 end
