@@ -1,5 +1,7 @@
 class Video < ActiveRecord::Base
-  attr_accessible :description, :poster_url, :price, :title, :video_url
+  attr_accessible :description, :poster_url, :price, :title, :video
+
+  mount_uploader :video, VideoUploader
 
   validates :price, :title, :video_url, presence: true
 
@@ -7,7 +9,7 @@ class Video < ActiveRecord::Base
                                 allow_nil: false}
   validates :title, uniqueness: true
 
-  validates :video_url, format: {with: /\.(mp4|ogv|ogg|webm)\Z/i,
+  validates :video, format: {with: /\.(mp4|ogv|ogg|webm)\Z/i,
                                message: 'must be a URL for mp4. ogg or webm video'}
 
   validates :poster_url,  format: {with: /\.(gif|jpg|png)\Z/i,

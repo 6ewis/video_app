@@ -6,7 +6,7 @@
   <table>
    <tr>
      <td>
-       <%= video_tag(@video.video_url, poster: @video.poster_url, controls: true, autobuffer: true, size: "640x480") %>
+       <%= video_tag(@video.video_url.to_s, poster: @video.poster_url, controls: true, autobuffer: true, size: "640x480") %>
      </td>
      <td>
        <dl>
