@@ -15,12 +15,22 @@
 	     <div id="side">
 	       <ul>
 	         <li><%= link_to 'Store', store_path %></li>
-	         <% if session[:cart_id] %>
+	         <% if current_user && session[:cart_id] %>
 	         <li><%= link_to 'Cart', cart_path(session[:cart_id]) %></li>
 	         <% end %>
 	         <li><a href='#'>About Us<a/></li>
 	       </ul>
 	     </div>
+
+	    <div>
+	      <% if current_user %>
+	        Logged in as <%= current_user.name %>.
+	        <%= link_to "Log Out", logout_path("placeholder"), method: :delete %>
+	      <% else %>	
+	    	<%= link_to "Sign Up", new_user_path %>
+	    	<%= link_to "Log In", login_path %>
+	      <% end %>
+	    </div>
 	 
 	    <div id="main">
 	      <%= yield %>

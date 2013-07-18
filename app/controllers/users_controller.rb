@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    
+
   end
 
 
@@ -25,7 +25,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
       if @user.save
-         redirect_to users_url, notice: 'User #{@user.name} successfully created.' 
+         session[:user_id] = @user.id
+         redirect_to store_url, notice: "User #{@user.name} successfully created." 
       else
         render :new 
       end

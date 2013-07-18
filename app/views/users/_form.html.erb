@@ -22,12 +22,12 @@
 
   <div class="field">
     <%= f.label :password, 'Password' %><br />
-    <%= f.text_field :password_field :password, size: 40 %>
+    <%= f.text_field :password, size: 40 %>
   </div>
 
   
   <div class="field">
-    <%= f.label :password_confirmation, 'Confirm' %><br />
+    <%= f.label :password_confirmation, 'Confirm Password' %><br />
     <%= f.text_field :password_confirmation, size: 40 %>
   </div>
 
@@ -35,5 +35,6 @@
     <%= f.submit %>
   </div>
 
-</fieldset>
 <% end %>
+</fieldset>
+
