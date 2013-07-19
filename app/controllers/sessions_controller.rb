@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_filter :authorize_user
+
   def new
   end
 
@@ -6,7 +8,8 @@ class SessionsController < ApplicationController
   	user = User.find_by_name(params[:name])
   	if user && user.authenticate(params[:password])
   		session[:user_id] = user.id
-  		redirect_to store_url
+      session[:cart_id] = nil
+  		user.admin ? (redirect_to videos_url) : (redirect_to store_url)
   	else
   	  redirect_to login_url, alert: "Email or password is invalid" 
   	end

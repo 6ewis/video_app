@@ -9,7 +9,7 @@
   <table>
    <tr>
      <td>
-       <%= video_tag(video.video_url, poster: video.poster_url, controls: true, autobuffer: true, class: 'video_thumbnail') %>
+       <%= video_tag(video.video_url.to_s, poster: video.poster_url, controls: true, autobuffer: true, class: 'video_thumbnail') %>
      </td>
      <td>
        <dl>

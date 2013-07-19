@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  before_filter :authorize_user
+
   private
 
     def current_cart
@@ -16,5 +18,18 @@ class ApplicationController < ActionController::Base
     end
 
     helper_method :current_user
+
+    def authorize_user
+        redirect_to login_url, alert:"Not authorized, please enter your login information" \
+        if current_user.nil?
+    end
+
+    def authorize_admin
+        if current_user.nil? || !current_user.admin
+        redirect_to login_url, alert:"Not authorized, Please enter your admin information" 
+        end
+    end
+
+    
 
 end

@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+  skip_before_filter :authorize_user
+  before_filter :authorize_admin, only: [:index, :show]
 
   def index
     @users = User.order(:name)
