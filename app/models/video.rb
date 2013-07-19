@@ -23,6 +23,6 @@ class Video < ActiveRecord::Base
   private
 
     def ensure_not_referenced_by_any_line_item
-    	line_items.empty?.tap { |i| errors.add(:base, "Line Items prsent") unless i}
+    	line_items.empty?.tap { |i| errors.add(:base, "Line Items present") unless i}
     end                      
 end

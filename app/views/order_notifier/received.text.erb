@@ -5,10 +5,10 @@ Thank you for your recent order from The Video Store
 You ordered the following items:
 
 	<% @order.line_items.each do |item| %>
-----------------------------------------------------------|	 
-	  <%= item.quantity %> <%= item.video.title %>        |
-	  Price: <%= number_to_currency(item.total_price) %>  |
-----------------------------------------------------------|
+ 
+	 | <%= item.quantity %> <%= item.video.title %>        |
+	  Price: <%= number_to_currency(item.total_price) %>  
+
 	<% end %>
 
 The Rouxbe Team
