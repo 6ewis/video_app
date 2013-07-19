@@ -1,7 +1,8 @@
 class Video < ActiveRecord::Base
-  attr_accessible :description, :poster_url, :price, :title, :video
+  attr_accessible :description, :poster, :price, :title, :video
 
   mount_uploader :video, VideoUploader
+  mount_uploader :poster, PosterUploader
 
   validates :price, :title, :video_url, presence: true
 
@@ -12,13 +13,17 @@ class Video < ActiveRecord::Base
   validates :video, format: {with: /\.(mp4|ogv|ogg|webm)\Z/i,
                                message: 'must be a URL for mp4. ogg or webm video'}
 
-  validates :poster_url,  format: {with: /\.(gif|jpg|png)\Z/i,
-                        message: 'must be a URL for GIF, JPG or PNG image',
-                        allow_blank: true}
+  # validates :poster,  format: {with: /\.(gif|jpg|png)\Z/i,
+  #                       message: 'must be a URL for GIF, JPG or PNG image',
+  #                       allow_blank: true}
 
   has_many :line_items
   
    before_destroy :ensure_not_referenced_by_any_line_item
+  
+  def image_placeholder
+     poster_url || 'rouxbe.jpg'
+  end
 
   private
 

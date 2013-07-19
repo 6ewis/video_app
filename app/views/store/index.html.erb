@@ -9,12 +9,13 @@
   <table>
    <tr>
      <td>
-       <%= video_tag(video.video_url.to_s, poster: video.poster_url, controls: true, autobuffer: true, class: 'video_thumbnail') %>
+
+       <%= image_tag(video.image_placeholder, class: 'poster_thumbnail') %>
      </td>
      <td>
        <dl>
          <dt><%= link_to video.title, video_path(video) %></dt>
-         <dd><%= truncate video.description, length: 40, separator: ' ' %></dd>
+         <dd><%= video.description %></dd>
        </dl>
      </td>
      <td>

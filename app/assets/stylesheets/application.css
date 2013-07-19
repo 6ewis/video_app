@@ -13,9 +13,9 @@
  */
 
 
-   .video_thumbnail {
-     width: 200px;
-     height: 112px;
+   .poster_thumbnail {
+     width: 100px;
+     height: 100px;
      border: 1px solid black;
    }
      
