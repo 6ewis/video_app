@@ -13,9 +13,9 @@ class Video < ActiveRecord::Base
   validates :video, format: {with: /\.(mp4|ogv|ogg|webm)\Z/i,
                                message: 'must be a URL for mp4. ogg or webm video'}
 
-  # validates :poster,  format: {with: /\.(gif|jpg|png)\Z/i,
-  #                       message: 'must be a URL for GIF, JPG or PNG image',
-  #                       allow_blank: true}
+  validates :poster,  format: {with: /\.(gif|jpg|png)\Z/i,
+                        message: 'must be a URL for GIF, JPG or PNG image',
+                        allow_blank: true}
 
   has_many :line_items
   
