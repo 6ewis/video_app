@@ -11,8 +11,10 @@ class OrdersController < ApplicationController
   def create
   	@order = Order.new(params[:order])
   	@order.add_line_items_from_cart(current_cart)
+    @line_item = LineItem.find_by_cart_id(session[:cart_id])
 
   	if @order.save
+      @line_item.update_attributes(order_id: @order.id, user_id: session[:user_id])
   		Cart.destroy(session[:cart_id])
   		session[:cart_id] = nil
   		OrderNotifier.received(@order).deliver

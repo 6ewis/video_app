@@ -6,7 +6,7 @@ You ordered the following items:
 
 	<% @order.line_items.each do |item| %>
  
-	 | <%= item.quantity %> <%= item.video.title %>        |
+	 * <%= item.quantity %> <%= item.video.title %>        
 	  Price: <%= number_to_currency(item.total_price) %>  
 
 	<% end %>

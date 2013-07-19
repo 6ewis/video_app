@@ -3,4 +3,9 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
 
   has_secure_password
+  has_many :line_items, dependent: :destroy
+
+  def ordered_video(video)
+  	line_items.find_by_video_id(video)
+  end
 end

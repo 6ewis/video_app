@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
-before_filter :authorize_admin
+before_filter :authorize_admin, except: [:show]
+before_filter :authorize_buyer, only: [:show]
 
   def index
     @videos = Video.all

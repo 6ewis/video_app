@@ -19,8 +19,14 @@
        </dl>
      </td>
      <td>
+       
+       <% if current_user && video.has_been_paid? %>
+       <strong> <%= "Paid!" %> </strong> <br />
+       <%= button_to 'Watch', video_path(video) , method: :get%>
+       <% else %>
        <%= number_to_currency(video.price) %><br />
-       <%= button_to 'Add to Cart', line_items_path(video) %>
+       <%= button_to 'Add to Cart', line_items_path(video) %> 
+       <% end %>
      </td>
    </tr>
   </table>

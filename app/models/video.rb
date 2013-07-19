@@ -1,5 +1,6 @@
 class Video < ActiveRecord::Base
   attr_accessible :description, :poster, :price, :title, :video
+  cattr_accessor :current_user
 
   mount_uploader :video, VideoUploader
   mount_uploader :poster, PosterUploader
@@ -23,6 +24,10 @@ class Video < ActiveRecord::Base
   
   def image_placeholder
      poster_url || 'rouxbe.jpg'
+  end
+
+  def has_been_paid?
+    current_user.admin ? true : current_user.ordered_video(self.id)
   end
 
   private

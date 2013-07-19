@@ -11,14 +11,16 @@
      <td>
        <dl>
          <dt><%= link_to @video.title, video_path(@video) %></dt>
-         <dd><%= truncate @video.description, length: 80, separator: ' ' %></dd>
+         <dd><%= @video.description %></dd>
        </dl>
      </td>
+     <% if current_user && current_user.admin %>
      <td>
        <%= link_to 'All Videos', videos_path %><br />
        <%= link_to 'Edit',  edit_video_path(@video) %><br/>
        <%= link_to 'Destroy', @video, method: :delete, data: {confirm: 'Are you sure?'} %>
      </td>
+     <% end %>
    </tr>
   </table>
 </article>

@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
 
     def current_user
     	@current_user ||= User.find(session[:user_id]) if session[:user_id]
+        Video.current_user = @current_user
     end
 
     helper_method :current_user
@@ -26,6 +27,13 @@ class ApplicationController < ActionController::Base
 
     def authorize_admin
         if current_user.nil? || !current_user.admin
+        redirect_to login_url, alert:"Not authorized, Please enter your admin information" 
+        end
+    end
+
+    def authorize_buyer
+        @video = Video.find(params[:id])
+        unless ( current_user && current_user.ordered_video(@video) ||  (current_user && current_user.admin))
         redirect_to login_url, alert:"Not authorized, Please enter your admin information" 
         end
     end
