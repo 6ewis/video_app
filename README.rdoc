@@ -1,9 +1,10 @@
 == Video App
 
+The most recent changes are in the staging branch
+
 TODO
-  fix quantity for video, dont need to purchase the same video many times
-  algorithm to check credit card
   bootstrap
   Change to haml later
+  *fix quantity for video, dont need to purchase the same video many times
 
 
