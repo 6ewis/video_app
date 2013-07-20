@@ -1,5 +1,7 @@
 VideoApp::Application.routes.draw do
 
+  get 'administration' => 'administrations#index', as: 'administration'
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
@@ -9,7 +11,7 @@ VideoApp::Application.routes.draw do
   resources :users
 
 
-  resources :orders, only: [:new, :create]
+  resources :orders, only: [:new, :create, :index, :destroy]
 
 
   # resources :carts

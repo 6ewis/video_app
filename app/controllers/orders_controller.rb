@@ -24,4 +24,15 @@ class OrdersController < ApplicationController
 
     end
   end
+
+    def index
+      @orders = Order.order(:created_at)
+    end
+
+    def destroy
+      @oder = Order.find(params[:id])
+      @order.destroy
+
+      redirect_to order_url, notice: "As per your request an order has just been destroyed"
+    end
 end
