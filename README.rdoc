@@ -1,6 +1,6 @@
 == Video App
 
-The most recent changes are in the staging branch
+
 
 Feature
    App is based on rails 3.2 and use twitter bootstrap
