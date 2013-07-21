@@ -1,14 +1,13 @@
 Dear <%= @order.name %>
 
-Thank you for your recent order from The Video Store
+Thank you for your recent order from the Rouxbe video Store
 
 You ordered the following items:
 
 	<% @order.line_items.each do |item| %>
  
 	 * <%= item.quantity %> <%= item.video.title %>        
-	  Price: <%= number_to_currency(item.total_price) %>  
-
+	   Price: <%= number_to_currency(item.total_price) %>  
 	<% end %>
 
 The Rouxbe Team

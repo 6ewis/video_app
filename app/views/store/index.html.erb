@@ -1,12 +1,12 @@
 <%= flash[:notice] if flash[:notice] %>
 
 <h1> Video Store </h1>
-<h2><%= pluralize @videos.size, 'Video' %></h2>
+<h6 class="video_nbr"><%= pluralize @videos.size, 'Video' %></h6>
 
 <% @videos.each do |video| %>
 
 <article>
-  <table>
+  <table class="video_table">
    <tr>
      <td>
 
@@ -14,7 +14,7 @@
      </td>
      <td>
        <dl>
-         <dt><%= link_to video.title, video_path(video) %></dt>
+         <dt><%= link_to video.title, '#' %></dt>
          <dd><%= video.description %></dd>
        </dl>
      </td>
@@ -22,10 +22,10 @@
        
        <% if current_user && video.has_been_paid? %>
        <strong> <%= "Paid!" %> </strong> <br />
-       <%= button_to 'Watch', video_path(video) , method: :get%>
+       <%= button_to 'Watch', video_path(video) , class: ".btn btn-success", method: :get%>
        <% else %>
        <%= number_to_currency(video.price) %><br />
-       <%= button_to 'Add to Cart', line_items_path(video) %> 
+       <%= button_to 'Add to Cart', line_items_path(video), class: ".btn btn-primary" %> 
        <% end %>
      </td>
    </tr>

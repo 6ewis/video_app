@@ -12,20 +12,20 @@
   <fiedlset>
 
   <legend> Enter the order details </legend>
-  <%= f.label :name %><br />
+  <%= f.label :name %>
   <%= f.text_field :name %><br />
 
-  <%= f.label :address %><br />
+  <%= f.label :address %>
   <%= f.text_area :address, rows: 3, cols: 40 %><br />
 
-  <%= f.label :email %><br />
+  <%= f.label :email %>
   <%= f.email_field :email %><br />
 
-  <%= f.label :pay_type %><br />
+  <%= f.label :pay_type %>
   <%= f.select :pay_type, Order::PAYMENT_TYPES,
                           prompt: 'Select the type of Credit Card ' %><br />
 
-  <%= f.label :credit_card_number %><br />
+  <%= f.label :credit_card_number %>
   <%= f.text_field :credit_card_number %><br />
 
   <%= f.submit 'Place Order' %>
