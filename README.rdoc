@@ -6,11 +6,11 @@ Feature
    App is based on rails 3.2 and use twitter bootstrap
    An admin UI for uploading the videos with authentication/authorization 
    Users (i.e. non-admins) with a basic login and proper authentication 
-   Video must be purchased individually
-   Purchases is made with a credit card but with CC validation but no actual charges.
+   Videos are purchased individually
+   Purchases are made with a credit card but with CC validation but no actual charges.
    All videos are displayed on a single page with some visual cue indicating whether it's available to the current user.
    Videos play in an HTML 5 browser (no fancy player)
-   Send an e-mail when the purchase is made
+   An e-mail is sent when the purchase is made
   
  To Fix
   *fix quantity for video, dont need to purchase the same video many times
