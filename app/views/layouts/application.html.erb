@@ -19,80 +19,80 @@
 </head>
 <body>
 
+<div class ="barhaute">
+		 <div class="navbar navbar-fixed-top">
+		  <div class="navbar-inner">
+		    <div class="container">
+		      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </a>
+		      <%= image_tag("logo2.jpg", class:"brand") %>
+		      <div class="nav-collapse collapse">
+		        <ul class="nav">
+		           <% if current_user && current_user.admin %>
+			       	 <li><%= link_to 'Administration Panel', administration_path %></li>
+			       <% end %>
+		          <li><%= link_to 'Store', store_path %></li>
+		          <% if current_user && session[:cart_id] %>
+			      <li><%= link_to 'Cart', cart_path(session[:cart_id]) %></li>
+			      <% end %>
+			      <li><%= link_to "Contact Us" %></li>
 
- <div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <%= image_tag("logo2.jpg", class:"brand") %>
-      <div class="nav-collapse collapse">
-        <ul class="nav">
-           <% if current_user && current_user.admin %>
-	       	 <li><%= link_to 'Administration Panel', administration_path %></li>
-	       <% end %>
-          <li><%= link_to 'Store', store_path %></li>
-          <% if current_user && session[:cart_id] %>
-	      <li><%= link_to 'Cart', cart_path(session[:cart_id]) %></li>
-	      <% end %>
-	      <li><%= link_to "Contact Us" %></li>
-
-        </ul>
-      </div>
-    </div>
-  </div>
-</div> 
-
-
-
-<div class="container">
-	<div class="row">
-		<div class="span3 bs-docs-sidebar">
-
-	      
-         <ul class="nav nav-list bs-docs-sidenav affix">
-         	<% if current_user %>
-            <li> 
-            	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="icon-user"></i><%= current_user.name %>
-                <span class="caret"></span>
-                 </a>
-             <ul class="dropdown-menu">
-               <li> <%= link_to "Log Out", logout_path("placeholder"), id: "logout", method: :delete %></li>
-             </ul>
-            </li>
-            <% else %>
-             <li class=""><a href= "<%= new_user_path %> "><i class="icon-chevron-right"></i> Sign Up</a></li>
-             <li class=""><a href= "<%= login_path %> "><i class="icon-chevron-right"></i> Log In</a></li>
-            <% end %>
-        </ul>
-       </div>
-        
-        <div class="bs-docs-sidebar">
-        <ul class="second nav nav-list bs-docs-sidenav affix">
-          <li class="active"><a href='#'><i class="icon-hand-down"></i> Menu </a></li>
-          <li class=""><a href= "<%= store_path %> "><i class="icon-chevron-right"></i> Store</a></li>
-          <% if current_user && current_user.admin %>
-          <li class=""><a href="<%= administration_path %>"><i class="icon-chevron-right"></i> Administration Panel </a></li>
-          <% end %>
-        
-          <% if current_user && session[:cart_id] %>
-          <li class=""><a href= "<%= cart_path(session[:cart_id]) %>"><i class="icon-chevron-right"></i> Cart</a></li>
-          <% end %>
-          <li class=""><a href='#'><i class="icon-chevron-right"></i> Contact us</a></li>
-        </ul>
+		        </ul>
+		      </div>
+		    </div>
+		  </div>
+		</div> 
 
 
 
-		</div>
-		<div class="span9">
-	      <%= yield %>
-	    </div>  
-	</div>      
-	    
+		<div class="container-fluid container-base">
+			<div class="row-fluid"> 
+					<div class="span3 bs-docs-sidebar">
+
+				      
+			         <ul class="first nav nav-list bs-docs-sidenav affix ">
+			         	<% if current_user %>
+			            <li> 
+			            	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+			                <i class="icon-user"></i><%= current_user.name %>
+			                <span class="caret"></span>
+			                 </a>
+			             <ul class="dropdown-menu">
+			               <li> <%= link_to "Log Out", logout_path("placeholder"), id: "logout", method: :delete %></li>
+			             </ul>
+			            </li>
+			            <% else %>
+			             <li class=""><a href= "<%= new_user_path %> "><i class="icon-chevron-right"></i> Sign Up</a></li>
+			             <li class=""><a href= "<%= login_path %> "><i class="icon-chevron-right"></i> Log In</a></li>
+			            <% end %>
+			          </ul>
+			        
+			        <ul class="second nav nav-list bs-docs-sidenav affix-top">
+			          <li class="active"><a href='#'><i class="icon-hand-down"></i> Menu </a></li>
+			          <li class=""><a href= "<%= store_path %> "><i class="icon-chevron-right"></i> Store</a></li>
+			          <% if current_user && current_user.admin %>
+			          <li class=""><a href="<%= administration_path %>"><i class="icon-chevron-right"></i> Administration Panel </a></li>
+			          <% end %>
+			        
+			          <% if current_user && session[:cart_id] %>
+			          <li class=""><a href= "<%= cart_path(session[:cart_id]) %>"><i class="icon-chevron-right"></i> Cart</a></li>
+			          <% end %>
+			          <li class=""><a href='#'><i class="icon-chevron-right"></i> Contact us</a></li>
+			        </ul>
+
+
+
+					</div> 
+
+					<div class="span9 affix-bottom">
+				      <%= yield %>
+				    </div>  
+			</div>      
+			    
+		</div> 
 </div>
 
 </body>
