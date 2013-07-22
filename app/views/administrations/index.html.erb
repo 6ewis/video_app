@@ -1,7 +1,14 @@
 <h1>Administration Panel</h1>
 
-<ul>
-  <li> <%= link_to 'Manage Videos', videos_path %> </li>
-  <li> <%= link_to 'Manage Orders', orders_path %></li>
-  <li> <%= link_to 'Manage Users', users_path %></li>
-</ul>
+ <%= link_to videos_path, class: 'btn btn-large btn-block' do %>
+  <i class='icon-facetime-video'></i> <strong>Manage Videos</strong>
+ <% end %>
+ 
+ <%= link_to orders_path, class: "btn btn-large btn-block" do %>
+ <i class="icon-pencil"></i><strong>Manage Orders</strong>
+ <% end %>
+
+ <%= link_to users_path, class: "btn btn-large btn-block " do %>
+ <i class="icon-user"></i><strong>Manage Users</strong>
+ <% end %>
+

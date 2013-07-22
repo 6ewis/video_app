@@ -3,7 +3,7 @@
 <h1> <%= @video.title %></h1>
 
 <article>
-  <table class="video_table">
+  <table>
    <tr>
      <td>
        <%= video_tag(@video.video_url.to_s, poster: @video.image_placeholder, controls: true, autobuffer: true, size: "640x480") %>
