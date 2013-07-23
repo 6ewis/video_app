@@ -12,7 +12,6 @@ Feature
    Videos play in an HTML 5 browser (no fancy player)
    An e-mail is sent when the purchase is made
   
- To Fix
-  *fix quantity for video, dont need to purchase the same video many times
+ 
 
 
