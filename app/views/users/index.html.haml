@@ -1,0 +1,25 @@
+%h1 Listing users
+
+- if notice
+  %p#notice
+    = notice
+%table
+  %tr
+    %th Name
+    %th Admin
+
+  - @users.each do |user|
+    %tr
+      %td= user.name
+      %td= user.admin.to_s
+
+      %td
+        = link_to 'Show', user, class:".btn btn-success space-link"
+      %td
+        = link_to 'Edit', edit_user_path(user), class:".btn btn-inverse space-link"
+      %td
+        =  link_to 'Destroy',user, class:".btn btn-danger space-link", method: :delete, data: { confirm: 'Are you sure?' }
+
+%br/
+
+= link_to 'New User', new_user_path, class:".btn btn-primary space-link"

@@ -1,0 +1,27 @@
+%h1 Listing orders
+
+- if notice
+  %p#notice
+    = notice
+
+%table.order_table
+  %tr
+    %th Username
+    %th Order Name
+    %th Address
+    %th Email
+    %th Payment Method
+
+  - @orders.each do |order|
+    %tr 
+      %td= username_related_to_order(order)
+      %td= order.name 
+      %td= order.address
+      %td= order.email
+      %td= order.pay_type
+
+      %td
+        = link_to 'Destroy', order, class: '.btn btn-danger space-link', method: :delete, data: { confirm: 'Are you sure?' }
+        
+
+  

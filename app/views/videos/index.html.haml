@@ -1,0 +1,25 @@
+= flash[:notice] if flash[:notice]
+%h1 Videos Administration
+%h6.video_nbr
+  = pluralize @videos.size, 'Video'
+= link_to "Add A New Video",  new_video_path, class: ".btn btn-success space-link"
+- @videos.each do |video|
+  %article
+    %table.video_table
+      %tr
+        %td
+          = video_tag(video.video_url.to_s, poster: video.image_placeholder, controls: true, autobuffer: true, class: 'video_thumbnail')
+        %td
+          %dl
+            %dt
+              = link_to video.title, video_path(video)
+            %dd
+              = video.description
+        %td
+          = link_to 'Show', video_path(video), class: ".btn btn-primary space-link"
+          %br
+          %br
+          = link_to 'Edit',  edit_video_path(video), class: ".btn btn-inverse space-link"
+          %br
+          %br
+          = link_to 'Destroy', video_path(video),class: ".btn btn-danger space-link", method: :delete, data: {confirm: 'Are you sure?'}

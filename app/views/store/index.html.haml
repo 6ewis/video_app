@@ -1,0 +1,28 @@
+= flash[:notice] if flash[:notice]
+
+%h1 Video Store
+%h6.video_nbr
+  = pluralize(@videos.size, 'Video')
+
+- @videos.each do |video|
+
+  %article
+    %table.video_table
+      %tr
+        %td
+          = image_tag(video.image_placeholder, class: 'poster_thumbnail')
+        %td
+          %dl
+            %dt
+              = link_to video.title, '#'
+            %dd
+              = video.description
+        %td
+          - if current_user && video.has_been_paid?
+            %strong= "Paid!"
+            %br/
+            = button_to 'Watch', video_path(video), class: ".btn btn-success", method: :get
+          - else
+            = number_to_currency(video.price)
+            %br/
+            = button_to 'Add to Cart', line_items_path(video), class: ".btn btn-primary"

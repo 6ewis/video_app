@@ -69,10 +69,22 @@
      border: 1px solid black;
    }
 
+   .order_table { width: 1000px;
+                  height: 200px;
+                  table-layout: fixed;}
+
+   .order_table td {
+    text-align: center;
+    vertical-align: top;
+    padding: 0px;
+   
+    overflow: scroll;}
+
 
    .video_table { width: 1000px;
                   height: 200px;
                   table-layout: fixed;}
+
 
    .video_table td {
     text-align: left;

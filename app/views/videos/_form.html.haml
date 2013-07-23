@@ -1,0 +1,33 @@
+= form_for @video, html: {multipart: true} do |f| 
+  - if @video.errors.any?
+    %h2
+      = pluralize(@video.errors.count, "Error")
+      %br/
+      The video couldn't be saved
+    %ul
+      - @video.errors.full_messages.each do |error|
+        %li= error
+
+  %fieldset
+    %legend Enter the video details
+    = f.label :title
+    = f.text_field :title
+    %br/
+    = f.label :description
+    = f.text_area  :description, rows: 6
+    %br/
+    = f.label :video
+    = f.file_field :video
+    %br/
+    %br/
+    = f.label :poster
+    = f.file_field :poster
+    %br/
+    %br/
+    = f.label :price
+    = f.number_field :price
+    %br/
+
+    = f.submit
+
+

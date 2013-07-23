@@ -1,0 +1,90 @@
+!!!
+%html
+  %head
+    %title Video Online Store
+
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0, minimum-scale=1.0 maximum-scale=1.0" }/
+
+    %link{rel: "apple-touch-icon", href: "/static/images/identity/HTML5_Badge_64.png"}
+
+  %body
+    %div.barhaute
+      %div.navbar.navbar-fixed-top
+        %div.navbar-inner
+          %div.container
+            %a.btn.btn-navbar{"data-toggle" => "collapse", "data-target" => ".nav-collapse"}
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            = image_tag("logo2.jpg", class:"brand")
+            %div.nav-collapse.collapse
+              %ul.nav
+                - if current_user && current_user.admin
+                  %li
+                    = link_to 'Administration Panel', administration_path
+                %li
+                  = link_to 'Store', store_path
+                - if current_user && session[:cart_id]
+                  %li
+                    = link_to 'Cart', cart_path(session[:cart_id])
+                %li
+                  = link_to "Contact Us"   
+
+
+      %div.container-fluid.container-base
+        %div.row-fluid
+          %div.span3.bs-docs-sidebar
+            %ul.first.nav.nav-list.bs-docs-sidenav.affix
+              - if current_user
+                %li
+                  %a.dropdown-toggle{ "data-toggle" => "dropdown", href: "#"}
+                    %i.icon-user
+                    = current_user.name
+                    %span.caret
+                  %ul.dropdown-menu
+                    %li
+                      = link_to "Log Out", logout_path("placeholder"), id: "logout", method: :delete 
+              - else
+                %li
+                  %a{href: new_user_path}
+                    %i.icon-chevron-right
+                    Sign Up
+                %li
+                  %a{href: login_path}
+                    %i.icon-chevron-right
+                    Log In
+
+
+            %ul.second.nav.nav-list.bs-docs-sidenav.affix-top
+              %li.active
+                %a{href: '#'}
+                  %i.icon-hand-down
+                  Menu
+              %li
+                %a{href: store_path}
+                  %i.icon-chevron-right
+                  Store
+              - if current_user && current_user.admin
+                %li
+                  %a{href: administration_path}
+                    %i.icon-chevron-right
+                    Administration Panel
+
+              - if current_user && session[:cart_id]
+                %li
+                  %a{href: cart_path(session[:cart_id])}  
+                    %i.icon-chevron-right
+                    Cart
+
+              %li
+                %a{href: '#'}
+                  %i.icon-chevron-right
+                  Contact us
+
+          %div.span9.affix-bottom
+            = yield
+
