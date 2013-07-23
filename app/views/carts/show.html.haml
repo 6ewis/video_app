@@ -9,13 +9,14 @@
         = item.video.title
       %td
         = number_to_currency(item.total_price)
-  
+  %br/
   %tr
     %td
       Total Amount:
     %td
-      = number_to_currency(@cart.total_price) 
+      =  number_to_currency(@cart.total_price) 
 
-= button_to 'Checkout', new_order_path, method: :get
-= button_to 'Empty cart', @cart, method: :delete, data: {confirm: 'Are you sure?'}
-= link_to 'Continue shopping', store_path
+%br/
+= button_to 'Checkout', new_order_path, class: "btn btn-success", method: :get
+= button_to 'Empty cart', @cart, class: "btn", method: :delete, data: {confirm: 'Are you sure?'}
+= link_to 'Continue shopping', store_path, class: "btn btn-primary"

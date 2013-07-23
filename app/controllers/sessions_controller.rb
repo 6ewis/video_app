@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:cart_id] = nil
   		user.admin ? (redirect_to videos_url) : (redirect_to store_url)
   	else
-  	  redirect_to login_url, alert: "Email or password is invalid" 
+  	  redirect_to login_url, alert: "Name or password is invalid" 
   	end
 
   end

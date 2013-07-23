@@ -11,23 +11,28 @@
   %fieldset
     %legend Enter the order details
 
-    = f.label :name
-    = f.text_field :name
+    = f.label :first_name, 'First name'
+    = f.text_field :first_name
     %br/
-    = f.label :address
-    = f.text_area :address, rows: 3, cols: 40
+    = f.label :last_name, 'Last name'
+    = f.text_field :last_name
     %br/
-
-    = f.label :email
+    = f.label :email, 'Email'
     = f.email_field :email
     %br/
-
-    = f.label :pay_type
-    = f.select :pay_type, Order::PAYMENT_TYPES,prompt: 'Select the type of Credit Card'
+    = f.label :card_number, 'Card number'
+    = f.text_field :card_number
     %br/
-
-    = f.label :credit_card_number
-    = f.text_field :credit_card_number
+    = f.label :card_type, 'Card type(Brand)'
+    = f.select :card_type, Order::PAYMENT_TYPES, prompt: 'Select the type of Credit Card'
     %br/
+    = f.label :verification_value, 'CW'
+    = f.text_field :verification_value
+    %br/
+    = f.label :card_expires_on, 'Expiry date'
+    = f.date_select :card_expires_on, start_year: Date.today.year, end_year: (Date.today.year+10), add_month_numbers: true
+    %br/
+    = f.label :total_price, 'amount'
+    = f.text_field :total_price, disabled: true, value: @order.total_price
 
-    = f.submit 'Place Order'
+    = f.submit 'Place Order', class:"btn btn-primary"

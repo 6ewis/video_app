@@ -7,18 +7,23 @@
 %table.order_table
   %tr
     %th Username
-    %th Order Name
-    %th Address
+    %th First name
+    %th Last name
     %th Email
-    %th Payment Method
+    %th Price
+    %th Date
+    %th ID
 
   - @orders.each do |order|
     %tr 
       %td= username_related_to_order(order)
-      %td= order.name 
-      %td= order.address
+      %td= order.first_name 
+      %td= order.last_name
       %td= order.email
-      %td= order.pay_type
+      %td= order.total_price
+      %td= order.created_at
+      %td= order.id
+
 
       %td
         = link_to 'Destroy', order, class: '.btn btn-danger space-link', method: :delete, data: { confirm: 'Are you sure?' }
