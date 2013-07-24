@@ -29,5 +29,8 @@
       = f.check_box :admin
     %br/
     %br/
+    - if params[:id]
+      = f.submit 'Update User', class: "btn btn-primary"
+    - else
+      = f.submit 'Create User', class: "btn btn-primary"
 
-    = f.submit        

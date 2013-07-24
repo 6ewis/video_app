@@ -6,8 +6,8 @@ class LineItem < ActiveRecord::Base
   belongs_to :order
   belongs_to :user
 
-  def total_price
-  	quantity * video.price
+  def total_price           #the quantity is not useful right now but might be in future
+  	quantity * video.price  #implementation
   end
 
 end

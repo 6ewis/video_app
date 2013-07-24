@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
-before_filter :authorize_admin, except: [:show]
-before_filter :authorize_buyer, only: [:show]
+before_filter :authorize_admin_only, except: [:show]
+before_filter :authorize_admin_and_those_who_ordered, only: [:show]
 
   def index
     @videos = Video.all
@@ -33,8 +33,8 @@ before_filter :authorize_buyer, only: [:show]
 
 
   def destroy
-    @video = Video.find(params[:id])
-    @video.destroy
+    video = Video.find(params[:id])
+    video.destroy
     redirect_to videos_url
   end
 

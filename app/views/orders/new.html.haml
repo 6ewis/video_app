@@ -33,6 +33,6 @@
     = f.date_select :card_expires_on, start_year: Date.today.year, end_year: (Date.today.year+10), add_month_numbers: true
     %br/
     = f.label :total_price, 'amount'
-    = f.text_field :total_price, disabled: true, value: @order.total_price
+    = f.text_field :total_price, disabled: true, value: total_price
 
     = f.submit 'Place Order', class:"btn btn-primary"

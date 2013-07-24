@@ -4,14 +4,13 @@ class CartsController < ApplicationController
 		@cart = Cart.find(params[:id])
 	rescue ActiveRecord::RecordNotFound
 		logger.error "Attempt to access invalid cart #{params[:id]}"
-		redirect_to store_url, notice: 'Invalid cart'
+		redirect_to store_url, alert: 'Invalid cart'
 	end
 	end
 
 	def destroy
-		@cart = current_cart
-		@cart.destroy
+		Cart.destroy(params[:id]) 
 		session[:cart_id] = nil
-		redirect_to store_url
+		redirect_to store_url, notice: "The cart is now empty"
 	end
 end

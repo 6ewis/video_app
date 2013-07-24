@@ -5,7 +5,7 @@ class Video < ActiveRecord::Base
   mount_uploader :video, VideoUploader
   mount_uploader :poster, PosterUploader
 
-  validates :price, :title, :video_url, presence: true
+  validates :price, :title, :video, presence: true
 
   validates :price, numericality:{greater_than_or_equal_to: 0.01, message: "must be a positive number",
                                 allow_nil: false}
@@ -27,7 +27,7 @@ class Video < ActiveRecord::Base
   end
 
   def has_been_paid?
-    current_user.admin ? true : current_user.ordered_video(self.id)
+    current_user.admin ? true : current_user.ordered_video(self)
   end
 
   private

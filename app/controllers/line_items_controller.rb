@@ -1,15 +1,15 @@
 class LineItemsController < ApplicationController
   def create
 
-  	@cart = current_cart
-  	video = Video.find(params[:format])
-  	@line_item = @cart.add_video(video.id)
   	
-
+  	video = Video.find(params[:format])
+  	@line_item = current_cart.add_video(video)
+  	
+  
   	if @line_item.save
   		redirect_to @line_item.cart, notice: "Line item was successfully created"
   	else
-  		render redirect_to store_url
+  		redirect_to store_url, notice: "an error has occured"
     end
 
   end

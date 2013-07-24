@@ -27,7 +27,7 @@
     = f.label :price
     = f.number_field :price
     %br/
-
-    = f.submit
-
-
+    - if params[:id]
+      = f.submit 'Update Video', class: "btn btn-primary"
+    - else
+      = f.submit 'Create Video', class: "btn btn-primary"

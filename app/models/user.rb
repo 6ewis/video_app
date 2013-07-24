@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
   has_many :line_items, dependent: :destroy
 
   def ordered_video(video)
-  	line_items.find_by_video_id(video)
+  	line_items.find_by_video_id(video.id)
   end
 end

@@ -54,13 +54,11 @@
    h6.video_nbr {
    	color: darkkhaki; }
 
-
-   
  
    .poster_thumbnail {
      width: 300px;
-     height: 120px;
-     border: 1px solid black;
+     height: 130px;
+     border: none;
    }
 
    .video_thumbnail {
@@ -92,6 +90,13 @@
     padding: 0px;
    
    	overflow: scroll;}
+
+    .video_show_table { 
+                  table-layout: fixed;}
+
+     .video_show_table td { overflow: scroll;}
+
+
 
 /**
 

@@ -1,8 +1,8 @@
 Dear <%= @order.first_name + " " + @order.last_name %>
 
-	Thank you for your recent order from the Rouxbe video Store
+Thank you for your recent order from the Rouxbe video Store
     
-	You ordered the following items:
+You ordered the following items:
 
 		<% @order.line_items.each do |item| %>
 	 
@@ -10,9 +10,9 @@ Dear <%= @order.first_name + " " + @order.last_name %>
 		   Price: <%= number_to_currency(item.total_price) %>  
 		<% end %>
 
-	Please note that you need to login on our website to be able to watch the videos you ordered.
+Please note that you need to login on our website to be able to watch the videos you ordered.
 
-	The Rouxbe Team
+The Rouxbe Team
                        , ; ,   .-'"""'-.   , ; ,
                        \\|/  .'         '.  \|//
                         \-;-/   ()   ()   \-;-/

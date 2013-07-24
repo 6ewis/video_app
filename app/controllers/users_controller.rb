@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
-  skip_before_filter :authorize_user
-  before_filter :authorize_admin, only: [:index, :show]
+  skip_before_filter :authorize_user_only
+  before_filter :authorize_admin_only, only: [:index, :show]
 
   def index
     @users = User.order(:name)
@@ -51,8 +51,8 @@ class UsersController < ApplicationController
 
   
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+    user = User.find(params[:id])
+    user.destroy
     redirect_to users_url 
   
   end

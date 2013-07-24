@@ -6,11 +6,11 @@
 
 - @videos.each do |video|
 
-  %article
-    %table.video_table
+  %article.video_table
+    %table
       %tr
         %td
-          = image_tag(video.image_placeholder, class: 'poster_thumbnail')
+          = image_tag(video.image_placeholder, class: 'poster_thumbnail', size: "220*331")
         %td
           %dl
             %dt
@@ -22,6 +22,11 @@
             %strong= "Paid!"
             %br/
             = button_to 'Watch', video_path(video), class: ".btn btn-success", method: :get
+          - elsif current_user && already_in_cart?(video)
+            %emphasize= "Already In Cart"
+            %br/
+            = button_to 'Back to Cart', line_items_path(video), class: ".btn btn-inverse"
+
           - else
             = number_to_currency(video.price)
             %br/

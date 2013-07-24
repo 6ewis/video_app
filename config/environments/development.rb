@@ -49,6 +49,8 @@ VideoApp::Application.configure do
   
   config.gem "activemerchant", :lib => "active_merchant"
 
+  #The paypal gateway require the billing address to work properly
+
   # config.after_initialize do
   # ActiveMerchant::Billing::Base.mode = :test
   # ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
