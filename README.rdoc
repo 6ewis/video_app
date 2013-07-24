@@ -3,14 +3,17 @@
 
 
 Feature
-   App is based on rails 3.2 and use twitter bootstrap
+   App is based on rails 3.2 and use twitter bootstrap and HAML
    An admin UI for uploading the videos with authentication/authorization 
+   An Administration panel for the admin users
    Users (i.e. non-admins) with a basic login and proper authentication 
    Videos are purchased individually
    Purchases are made with a credit card with CC validation but no actual charges.
    All videos are displayed on a single page with some visual cue indicating whether it's available to the current user.
    Videos play in an HTML 5 browser (no fancy player)
    An e-mail is sent when the purchase is made
+
+
   
  
 
