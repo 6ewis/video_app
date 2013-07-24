@@ -38,6 +38,6 @@ class OrdersController < ApplicationController
       order = Order.find(params[:id])
       order.destroy
 
-      redirect_to order_url, notice: "As per your request an order has just been destroyed"
+      redirect_to orders_url, notice: "As per your request an order has just been destroyed"
     end
 end

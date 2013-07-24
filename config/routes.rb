@@ -12,7 +12,7 @@ VideoApp::Application.routes.draw do
 
 
   resources :orders, only: [:new, :create, :index, :destroy]
-
+  
 
   # resources :carts
   get 'carts/:id' => 'carts#show', as: 'cart'
